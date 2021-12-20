@@ -61,3 +61,7 @@ sketch
 
 # Support for Project snippet scope
 !.vscode/*.code-snippets
+
+# Other
+.env
+notes.txt
