@@ -86,6 +86,7 @@ useEffect(() => {
       console.error("failed to check if wallet has voted", err);
     });
 }, [hasClaimedNFT, proposals, address]);
+  
 
 // A fancy function to shorten someones wallet address, no need to show the whole thing. 
 const shortenAddress = (str) => {
@@ -177,6 +178,18 @@ const memberList = useMemo(() => {
         console.error("failed to get nft balance", error);
       });
   }, [address]);
+
+  if (error && error.name === "UnsupportedChainIdError") {
+    return (
+      <div className="unsupported-network">
+        <h2>Please connect to Rinkeby</h2>
+        <p>
+          This dapp only works on the Rinkeby network, please switch networks
+          in your connected wallet.
+        </p>
+      </div>
+    );
+  }
 
   // This is the case where the user hasn't connected their wallet
   // to your web app. Let them call connectWallet.
