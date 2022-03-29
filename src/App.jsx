@@ -200,6 +200,7 @@ const memberList = useMemo(() => {
         <button onClick={() => connectWallet("injected")} className="btn-hero">
           Connect your wallet
         </button>
+        <p color="red" font-size="small">*Must be on Rinkeby Testnet</p>
       </div>
     );
   }
